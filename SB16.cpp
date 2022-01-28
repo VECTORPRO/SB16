@@ -1,17 +1,21 @@
-﻿#include <iostream>
-#include <ctime> //Библиотека для получения данных о текущей дате
+﻿#include <Windows.h>
+#include <iostream>
 
 using namespace std;
 
+int correctDay()
+{
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+
+    return st.wDay;
+}
+
 int main()
 {
-   time_t now = time(0);
-
-   std::cout << "Today - " << time(0) <<"\n";
-
     const int N = 2;
     int summ = 0;
-    int array[N][N] = { {0, 1}, {2, 3} };
+    int array[N][N] = { {3, 5}, {4, 6} };
     int Today = 27; // не понимаю как получить время предположим сегодня 27е число
 
     //Первая задача просто выводим все данные
@@ -20,7 +24,7 @@ int main()
     {
         for (int j = 0; j < N; j++)
         {
-            std::cout << array[i][j];
+            std::cout << array[i][j] << "  ";
         }
         std::cout << "\n";
     }
@@ -28,7 +32,9 @@ int main()
     std::cout << "task 2 output of summ element -" << "\n";
         for (int j = 0; j < N; j++)
         {
-           summ = summ + array[Today % N][j];
+           summ = summ + array[(correctDay()) % N][j];
         }
-        std::cout << summ << "\n";
+        std::cout << "Summa Elementov : -" << summ << "\n";
+        std::cout << "\n";
+        std::cout << "Today : -" << correctDay() << "\n";
  }
