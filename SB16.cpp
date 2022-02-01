@@ -13,7 +13,7 @@ int correctDay()
 
 int main()
 {
-    const int N = 2;
+    const int N = 5;
     int summ = 0;
     int array[N][N] = { {3, 5}, {4, 6} };
     int Today = 27; // не понимаю как получить время предположим сегодня 27е число
@@ -24,6 +24,7 @@ int main()
     {
         for (int j = 0; j < N; j++)
         {
+            array[i][j] = i + j;
             std::cout << array[i][j] << "  ";
         }
         std::cout << "\n";
